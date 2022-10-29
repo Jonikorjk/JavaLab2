@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        Circle circle = new Circle(15);
+
         Circle[] circles = {
                 new Circle(12.4),
                 new Circle(1),

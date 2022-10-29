@@ -7,7 +7,7 @@ public class Circle implements Comparable<Circle> {
         this.radius = radius;
     }
 
-    public double getArea() {
+    public  double getArea() {
         return Math.PI * Math.pow(radius, 2);
     }
 
