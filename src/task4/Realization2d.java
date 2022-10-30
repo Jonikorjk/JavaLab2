@@ -60,6 +60,7 @@ public class Realization2d extends AbstractArrayOfPoints {
 
     @Override
     public void removeLast() {
+        if (count() == 0) return;
         points[indexOfLastPoint] = new double[0];
         indexOfLastPoint--;
     }
