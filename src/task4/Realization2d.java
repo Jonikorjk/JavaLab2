@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.Arrays;
 
 public class Realization2d extends AbstractArrayOfPoints {
-    private int maxCountOfPoints = 300;
+    private int maxCountOfPoints = 10;
     private int indexOfLastPoint = -1;
     private double[][] points = new double[maxCountOfPoints][0];
 
@@ -36,7 +36,7 @@ public class Realization2d extends AbstractArrayOfPoints {
     public int count() {
         int count = 0;
         for (int i = 0; i < points.length; i++) {
-            if (points[i].length == 0 || points[i] == null) {
+            if (points[i].length == 0) {
                 break;
             }
             else count++;
@@ -48,7 +48,7 @@ public class Realization2d extends AbstractArrayOfPoints {
     public void addPoint(double x, double y) {
         if (count() == maxCountOfPoints) {
             maxCountOfPoints *= 2;
-            double[][] copy = new double[maxCountOfPoints][];
+            double[][] copy = new double[maxCountOfPoints][0];
             for (int i = 0; i < points.length; i++) {
                 copy[i] = Arrays.copyOf(points[i], points[i].length);
             }
