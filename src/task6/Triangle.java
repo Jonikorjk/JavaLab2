@@ -3,13 +3,13 @@ package task6;
 import java.util.Comparator;
 
 
-class CompareByArea implements Comparator<Triangle> {
-
-    @Override
-    public int compare(Triangle o1, Triangle o2) {
-        return Double.compare(o1.getArea(), o2.getArea());
-    }
-}
+//class CompareByArea implements Comparator<Triangle> {
+//
+//    @Override
+//    public int compare(Triangle o1, Triangle o2) {
+//        return Double.compare(o1.getArea(), o2.getArea());
+//    }
+//}
 
 public class Triangle {
     double a, b, c;

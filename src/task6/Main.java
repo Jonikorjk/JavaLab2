@@ -23,6 +23,7 @@ public class Main {
                 return Double.compare(o1.getArea(), o2.getArea());
             }
         });
+
         for (var i : triangles) {
             System.out.println(i.toString());
         }
