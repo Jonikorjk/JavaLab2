@@ -7,10 +7,6 @@ import task3.lambda.*;
 import task3.reference.*;
 
 
-import java.awt.*;
-import java.lang.invoke.LambdaConversionException;
-
-
 public class Main {
     public static void main(String[] args) {
 
