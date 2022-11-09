@@ -51,8 +51,7 @@ public class Realization1d extends AbstractArrayOfPoints {
 
     @Override
     public void addPoint(double x, double y) {
-        double[] copy = new double[points.length + 2];
-        System.arraycopy(points, 0, copy, 0, points.length);
+        double[] copy = Arrays.copyOf(points, points.length + 2);
         copy[points.length] = x;
         copy[points.length + 1] = y;
         points = copy;

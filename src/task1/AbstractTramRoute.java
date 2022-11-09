@@ -3,25 +3,62 @@ package task1;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * Abstract class which describes tram route
+ */
 public abstract class AbstractTramRoute {
     protected int num = 0;
     protected int averageInterval = 0;
-
-
+    /**
+     * <p>getNum()</p>
+     * Function that get access to number of tram route
+     * @return number of tram route
+     */
     public int getNum() { return  num; }
+
+    /**
+     * <p>getAverageInterval()</p>
+     * Function that get access to average interval between stations
+     * @return average interval between stations
+     */
     public int getAverageInterval() { return averageInterval; }
+
+    /**
+     * <p>setNum()</p>
+     * Function that sets number of tram route
+     * @param num number of tram route
+     */
     public void setNum(int num) { this.num = num; }
+
+    /**
+     * <p>setAverageInterval()</p>
+     * Function that sets average interval between stations
+     * @param averageInterval average interval between stations
+     */
     public void setAverageInterval(int averageInterval) { this.averageInterval = averageInterval; }
 
-    private Station[] append(Station[] stations, Station station) {
-        Station[] newStations = new Station[stations.length + 1];
-        for (int i = 0; i < stations.length; i++) {
-            newStations[i] = stations[i];
+    /**
+     * <p>append()</p>
+     * Function that appends new element to array
+     * @param arr array which appends
+     * @param station new station
+     * @return new array with new element
+     */
+    private Station[] append(Station[] arr, Station station) {
+        Station[] newStations = new Station[arr.length + 1];
+        for (int i = 0; i < arr.length; i++) {
+            newStations[i] = arr[i];
         }
         newStations[newStations.length - 1] = station;
         return newStations;
     }
 
+
+    /**
+     * <p>getAllPassengers()</p>
+     * Function returns all passengers
+     * @return all passengers amount
+     */
     public int getAllPassengers() {
         Station[] stations = getTramRoute().clone();
         Station minPassengers = stations[0];
@@ -32,6 +69,11 @@ public abstract class AbstractTramRoute {
         return allPassengers;
     }
 
+    /**
+     * <p>getStationsWithLeastNumberOfPassengers()</p>
+     * Function returns all stations in way
+     * @return all stations in way
+     */
     public Station[] getStationsWithLeastNumberOfPassengers() {
         Station[] stations = getTramRoute().clone();
         Station minPassengers = stations[0];
@@ -51,6 +93,11 @@ public abstract class AbstractTramRoute {
         return leastPassengers;
     }
 
+    /**
+     * <p>getStationWithTheLargestName()</p>
+     * Function returns stations with the largest name
+     * @return stations with the largest name
+     */
     public Station[] getStationWithTheLargestName() {
         Station[] stations = getTramRoute().clone();
         Station largestName = stations[0];
@@ -70,9 +117,24 @@ public abstract class AbstractTramRoute {
         return largestNames;
     }
 
+    /**
+     * <p>getTramRoute()</p>
+     * Abstract method which returns the tram route
+     * @return tram route
+     */
     public abstract Station[] getTramRoute();
+    /**
+     * <p>setTramRouteWithArray()</p>
+     * Abstract method which sets tram route
+     * @param t tram route
+     */
     public abstract void setTramRouteWithArray(Station[] t);
 
+
+    /**
+     * Overrode function toString()
+     * @return Converts objects parameters into string format sentences and returns it.
+     */
     @Override
     public String toString() {
         String info = "Amount of all station: " + num + " Avarage time interval between stations: " + averageInterval + '\n';
@@ -83,6 +145,13 @@ public abstract class AbstractTramRoute {
         return info;
     }
 
+    /**
+     * Overrode function of Comparable interface<br>
+     * Compares links and then parameters of objects.
+     * @param obj object to compare
+     * @return true - equal<br>
+     * false - not equal
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -91,11 +160,20 @@ public abstract class AbstractTramRoute {
         return Arrays.equals(getTramRoute(), c.getTramRoute());
     }
 
+    /**
+     * Overrode function hashCode()
+     * @return converts objects parameters into string format sentences and returns it
+     */
     @Override
     public int hashCode() {
         return Objects.hash(num, averageInterval);
     }
 
+    /**
+     * <p>passengersSort()</p>
+     * Fuction that return sorted array of Station, (Sort bubble)
+     * @return sorted array of stations
+     */
     public Station[] passengersSort() {
         boolean mustSort = false;
         Station[] stations = getTramRoute().clone();
@@ -114,6 +192,11 @@ public abstract class AbstractTramRoute {
         return stations;
     }
 
+    /**
+     * <p>nameOfStationSort()</p>
+     * Fuction that return sorted array of Station, (Insert sort)
+     * @return sorted array of stations
+     */
     public Station[] nameOfStationSort() {
         Station[] stations = getTramRoute().clone();
         if (stations.length == 0 || stations == null) return null;
@@ -129,6 +212,10 @@ public abstract class AbstractTramRoute {
         return stations;
     }
 
+    /**
+     * <p>test()</p>
+     * Function that tests functional of classes
+     */
     public static void test() {
         Station[] stations = {
                 new Station("Porkovsk", 15),
